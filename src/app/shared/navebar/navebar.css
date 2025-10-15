@@ -1,0 +1,63 @@
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+
+}
+.header{
+  background-color: white;
+    width: 100vw;      /* 100% de la largeur de la fenêtre (viewport) */
+    margin-left: 0;    /* s'assure qu'il n'y a pas de décalage */
+    margin-right: 0;
+    box-sizing: border-box; /* inclut padding et border dans la largeur */
+
+}
+.top-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info fa-icon {
+  font-size: 1.3rem;
+  color: #777;
+  cursor: pointer;
+}
+
+.user-circle {
+  width: 35px;
+  height: 35px;
+  background-color: #1b4965;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.user-details {
+  line-height: 1.2;
+}
+
+.user-details p {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+  color: #333;
+}
+
+.user-details small {
+  color: #777;
+  font-size: 0.75rem;
+}

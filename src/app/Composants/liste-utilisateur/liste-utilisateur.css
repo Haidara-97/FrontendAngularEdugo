@@ -1,0 +1,62 @@
+:root {
+  --background-main: #FFFFFF;
+  --background-secondary: rgba(236, 240, 241, 0.5);
+  --background-table-header: rgba(217, 217, 217, 0.25);
+  --primary-color: #A885D8;
+  --primary-color-light: rgba(168, 133, 216, 0.3);
+  --text-dark: #000000;
+  --text-main: #393E46;
+  --text-light: #808080;
+  --text-subtle: rgba(0, 0, 0, 0.5);
+  --border-color: #D9D9D9;
+  --border-color-light: rgba(128, 128, 128, 0.5);
+  --status-active-bg: rgba(40, 189, 127, 0.3);
+  --level-badge-bg-1: rgba(25, 90, 157, 0.5);
+  --level-badge-bg-2: rgba(0, 140, 255, 0.5);
+  --font-roboto: 'Roboto', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-roboto);
+  background-color: var(--background-main);
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
