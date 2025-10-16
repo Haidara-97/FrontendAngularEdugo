@@ -9,6 +9,8 @@
 .sidebar{
   background-color: white;
   align-content: flex-start;
+  height: 100vh;
+  justify-content: space-between;
 }
 
 .toggle-btn {
@@ -25,13 +27,14 @@
 
 .menu ul {
   list-style: none;
-  padding-top: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  padding: 12px 20px;
+  padding: 12px 0 12px 10px;
   color: #777;
   transition: background-color 0.2s, color 0.2s;
 }
@@ -45,13 +48,13 @@
 .menu-item fa-icon {
   font-size: 1.1rem;
   width: 30px;
-  text-align: center;
+  text-align: left;
 }
 
 .menu-item.active {
   background-color: #e5e0ff;
   color: #7b4fff;
-  border-right: 4px solid #7b4fff;
+  border-left: 4px solid #7b4fff;
   margin-right: -4px;
 }
 
@@ -60,11 +63,11 @@
 }
 
 .logout {
-  margin-top: auto;
+  margin-top: 70px;
   padding: 20px;
   display: flex;
   align-items: center;
-  color: #777;
+  color: #393E46;
   font-size: 0.9rem;
 }
 
@@ -72,4 +75,7 @@
   text-decoration: none;
   color: inherit;
   margin-left: 10px;
+}
+.logout fa-icon{
+  font-size: 1.3rem;
 }

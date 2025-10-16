@@ -7,11 +7,6 @@
   --card-bg: #ffffff;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
-  /* Couleurs pour les icônes */
-  --stat-blue: #4a68f2;
-  --stat-green: #37c75b;
-  --stat-orange: #ff914d;
-  --stat-darkblue: #1b4965;
 }
 
 /* -------------------- Réinitialisation -------------------- */
@@ -24,15 +19,16 @@
 
 body {
   height: 100%;
-  margin: 0;
+  width: 80%;
   padding: 0;
   overflow-x: hidden;
+  margin-left: 150%;
 }
 /* Navbar toujours en haut */
 app-navebar {
   width: 100%;
   display: block;
-  position: fixed; /* reste en haut */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
@@ -42,7 +38,7 @@ app-navebar {
 .dashboard-container {
   display: flex;
   width: 100%;
-  margin-top: 60px; /* hauteur de la navbar */
+  margin-top: 90px; /* hauteur de la navbar */
   min-height: calc(100vh - 60px);
 }
 
@@ -52,7 +48,7 @@ app-sidebar {
   flex-shrink: 0;
   height: calc(100vh - 60px); /* hauteur pleine sous navbar */
   position: fixed;
-  top: 60px;
+  top: 65px;
   left: 0;
   background-color: var(--card-bg);
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
@@ -62,32 +58,50 @@ app-sidebar {
 /* -------------------- Conteneur principal -------------------- */
 .main-content {
   margin-left: 250px; /* espace pour sidebar */
-  padding: 20px;
+  padding: 10px;
   width: calc(100% - 250px);
   min-height: calc(100vh - 60px);
   background-color: var(--main-bg);
   overflow-x: hidden;
 }
 
-/* -------------------- 1. Cartes de statistiques -------------------- */
+/* -------------------- les Cartes de statistiques -------------------- */
+.alignementTexte {
+  display: flex;
+  flex-direction: column; /* disposition verticale */
+  justify-content: center; /* centre verticalement si nécessaire */
+  align-items: flex-start; /* aligne à gauche */
+  gap: 4px; /* espace entre la valeur et le label */
+}
 .stats-cards-container {
   display: flex;
-  gap: 20px;
+  gap: 35px;
   margin-bottom: 30px;
+}
+.stat-cards-deco{
+  background-color: #A885D8;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  z-index: 1;
+  padding-left: 6px; /* espace intérieur pour décaler le contenu */
+  display: flex;
 }
 
 .stat-card {
-  background-color: var(--card-bg);
+  background-color: white;
   padding: 15px 20px;
   border-radius: 8px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
   flex: 1;
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-left: 3px;
+  width: 210px;
+  height: 150px;
 }
 
-.stat-card .icon-container {
+.stat-card .icon-containerA {
   width: 45px;
   height: 45px;
   border-radius: 8px;
@@ -97,14 +111,44 @@ app-sidebar {
   color: white;
   font-size: 1.3rem;
   flex-shrink: 0;
+  background-color: #0000FF;
 }
-
-/* Couleurs spécifiques des icônes */
-.stat-card:nth-child(1) .icon-container { background-color: var(--stat-blue); }
-.stat-card:nth-child(2) .icon-container { background-color: var(--stat-green); }
-.stat-card:nth-child(3) .icon-container { background-color: var(--stat-orange); }
-.stat-card:nth-child(4) .icon-container { background-color: var(--stat-darkblue); }
-
+.stat-card .icon-containerB {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  background-color: #28BD7F;
+}
+.stat-card .icon-containerC {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  background-color: #FF7900;
+}
+.stat-card .icon-containerD {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  background-color: #195A9D;
+}
 .stat-card .value {
   font-size: 1.2rem;
   font-weight: bold;
@@ -124,7 +168,7 @@ app-sidebar {
 }
 
 .grid-item {
-  background-color: var(--card-bg);
+  background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -146,6 +190,7 @@ app-sidebar {
 .activity-chart {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .chart-options {
@@ -179,9 +224,6 @@ app-sidebar {
   vertical-align: middle;
 }
 
-.legend-item.blue::before { background-color: var(--stat-blue); }
-.legend-item.green::before { background-color: var(--stat-green); }
-
 .graph-area {
   height: 80%;
   border-left: 1px solid #ddd;
@@ -203,12 +245,14 @@ app-sidebar {
 .quick-actions {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .actions-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 40px;
+  margin-top: 40px;
 }
 
 .action-btn {
@@ -242,18 +286,21 @@ app-sidebar {
 .reading-distribution {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .distribution-content {
   display: flex;
-  gap: 40px;
+  gap: 70px;
   align-items: center;
   padding: 20px 0;
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
 .pie-chart-placeholder {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background: conic-gradient(
     #4a68f2 0% 12.5%,
@@ -308,6 +355,7 @@ app-sidebar {
 .top-users {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 .view-all {
@@ -334,7 +382,7 @@ app-sidebar {
 .user-initials-small {
   width: 30px;
   height: 30px;
-  background-color: var(--stat-blue);
+  background-color: #008CFF;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -366,4 +414,16 @@ app-sidebar {
   font-size: 0.9rem;
   color: var(--secondary-text-color);
   flex-shrink: 0;
+}
+.trait{
+  height: 1px;
+  background-color: black;
+  width: 90vh;
+  margin: 2%;
+}
+.traitA{
+  height: 1px;
+  background-color: black;
+  width: 45vh;
+  margin: 2%;
 }
