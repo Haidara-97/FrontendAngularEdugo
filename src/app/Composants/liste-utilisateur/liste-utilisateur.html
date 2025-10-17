@@ -1,832 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generated Page</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Utilisateurs DashboardService</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
-  <style id="sections-styles">
-    /* CSS for section section:dashboard */
-    .dashboard-layout {
-      display: flex;
-      max-width: 2127px;
-      margin: 0 auto;
-      background-color: var(--background-secondary);
-    }
+<app-navebar></app-navebar>
+<div class="users-page-container">
+  <app-sidebar></app-sidebar>
+  <h1 class="page-title">Utilisateurs</h1>
 
-    .sidebar {
-      width: 440px;
-      flex-shrink: 0;
-      background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-      border-right: 1px solid var(--border-color);
-      padding: 21px 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100vh;
-    }
-
-    .logo {
-      gap: 13px;
-      margin-left: 10px;
-      margin-bottom: 120px;
-    }
-
-    .logo-icon-container {
-      position: relative;
-      width: 122px;
-      height: 92px;
-    }
-
-    .logo-text {
-      font-family: var(--font-roboto);
-      font-size: 64px;
-      font-weight: 400;
-      background: linear-gradient(90deg, #a885d8 25.96%, #333333 80.29%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-    }
-
-    .sidebar-nav ul {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .nav-item {
-      font-family: var(--font-poppins);
-      font-size: 30px;
-      color: var(--text-main);
-      padding: 12.5px 22px;
-      border-radius: 10px;
-      gap: 25px;
-    }
-
-    .sidebar-nav li.active .nav-item {
-      color: var(--primary-color);
-      font-weight: 900;
-      background: var(--primary-color-light);
-      position: relative;
-    }
-
-    .sidebar-nav li.active .nav-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 12px;
-      background-color: var(--primary-color);
-      border-radius: 10px 0 0 10px;
-    }
-
-    .sidebar-bottom {
-      padding-bottom: 100px;
-    }
-
-    .content-wrapper {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .main-header {
-      padding: 21px 76px;
-      border-bottom: 1px solid var(--border-color);
-      background-color: var(--background-main);
-    }
-
-    .header-title {
-      font-family: var(--font-roboto);
-      font-size: 50px;
-      font-weight: 400;
-      color: var(--text-dark);
-    }
-
-    .user-profile {
-      gap: 22px;
-    }
-
-    .notification-bell {
-      position: relative;
-      cursor: pointer;
-    }
-
-    .notification-dot {
-      position: absolute;
-      top: 4px;
-      right: 6px;
-      width: 10px;
-      height: 10px;
-    }
-
-    .user-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-color: #A8E6CF; /* Placeholder color */
-      color: var(--text-dark);
-      font-size: 30px;
-      font-weight: 400;
-    }
-
-    .user-info .user-name {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--text-dark);
-    }
-
-    .user-info .user-role {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--text-subtle);
-    }
-
-    .main-content {
-      padding: 50px 76px;
-      flex-grow: 1;
-    }
-
-    .content-title {
-      font-size: 50px;
-      font-weight: 400;
-      margin-bottom: 50px;
-    }
-
-    .card {
-      background-color: var(--background-main);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.25);
-    }
-
-    .filters-card {
-      padding: 38px 32px;
-      margin-bottom: 55px;
-    }
-
-    .filters-form {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      gap: 42px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .form-group label {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .form-group input, .select-wrapper {
-      width: 300px;
-      height: 40px;
-      border: 1px solid var(--text-light);
-      border-radius: 10px;
-    }
-
-    .form-group input {
-      padding: 0 15px;
-      font-size: 12px;
-    }
-
-    .select-wrapper {
-      position: relative;
-    }
-
-    .select-wrapper select {
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: transparent;
-      padding: 0 15px;
-      appearance: none;
-      -webkit-appearance: none;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-light);
-    }
-
-    .select-arrow {
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .form-actions {
-      display: flex;
-      gap: 53px;
-      margin-left: auto;
-    }
-
-    .btn {
-      height: 40px;
-      border-radius: 10px;
-      border: 1px solid var(--text-light);
-      padding: 0 20px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-light);
-      gap: 5px;
-    }
-
-    .users-list-card {
-      padding: 0 8px 0 0;
-    }
-
-    .list-header {
-      padding: 68px 67px 10px;
-    }
-
-    .list-title {
-      font-size: 30px;
-      font-weight: 400;
-    }
-
-    .table-responsive {
-      overflow-x: auto;
-    }
-
-    .users-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .users-table th, .users-table td {
-      text-align: left;
-      padding: 20px;
-      vertical-align: middle;
-    }
-
-    .users-table thead {
-      background-color: var(--background-table-header);
-    }
-
-    .users-table th {
-      padding-top: 24px;
-      padding-bottom: 24px;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--text-dark);
-    }
-    .users-table th:first-child { padding-left: 32px; }
-    .users-table th:last-child { padding-right: 32px; }
-
-    .users-table tbody tr {
-      border-bottom: 1px solid var(--border-color-light);
-    }
-    .users-table tbody tr:last-child {
-      border-bottom: none;
-    }
-    .users-table td:first-child { padding-left: 32px; }
-    .users-table td:last-child { padding-right: 32px; }
-
-    .table-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-right: 31px;
-      color: var(--text-dark);
-      font-size: 30px;
-      font-weight: 400;
-    }
-    .avatar-1 { background-color: #A8E6CF; }
-    .avatar-2 { background-color: #DCEDC1; }
-    .avatar-3 { background-color: #FFD3B6; }
-    .avatar-4 { background-color: #CFCFCF; }
-    .avatar-5 { background-color: #A8E6CF; }
-    .avatar-6 { background-color: #DCEDC1; }
-    .avatar-7 { background-color: #FFD3B6; }
-    .avatar-8 { background-color: #CFCFCF; }
-    .avatar-9 { background-color: #A8E6CF; }
-    .avatar-10 { background-color: #DCEDC1; }
-
-
-    .user-name-table {
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .user-email-table {
-      font-size: 16px;
-      color: var(--text-subtle);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 5px 15px;
-      border-radius: 5px;
-      font-size: 12px;
-      text-align: center;
-      min-width: 50px;
-    }
-
-    .badge-level-1 {
-      background-color: var(--level-badge-bg-1);
-      color: var(--text-dark);
-    }
-    .badge-level-2 {
-      background-color: var(--level-badge-bg-2);
-      color: var(--text-dark);
-    }
-
-    .badge-status {
-      background-color: var(--status-active-bg);
-      border-radius: 30px;
-      color: var(--text-dark);
-    }
-
-    .points {
-      font-weight: 700;
-    }
-
-    .btn-icon {
-      width: 40px;
-      height: 30px;
-      border: 1px solid var(--text-light);
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .list-footer {
-      padding: 55px 68px;
-    }
-
-    .footer-info {
-      font-size: 20px;
-    }
-
-    .pagination {
-      gap: 10px;
-    }
-
-    .pagination ul {
-      gap: 10px;
-    }
-
-    .page-number {
-      width: 40px;
-      height: 30px;
-      border: 1px solid var(--text-light);
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-
-    .page-number.active {
-      background-color: var(--primary-color);
-      color: var(--background-main);
-      border-color: var(--primary-color);
-    }
-
-    @media (max-width: 1600px) {
-      .dashboard-layout {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        height: auto;
-        min-height: auto;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-      }
-      .sidebar-top {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-      .logo {
-        margin-bottom: 0;
-      }
-      .sidebar-nav ul {
-        flex-direction: row;
-        gap: 10px;
-      }
-      .nav-item span {
-        display: none;
-      }
-      .sidebar-bottom {
-        padding-bottom: 0;
-      }
-      .main-content {
-        padding: 20px;
-      }
-      .main-header {
-        padding: 20px;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .filters-form {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .form-actions {
-        margin-left: 0;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .list-header, .list-footer {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-      }
-      .main-header {
-        flex-direction: column;
-        gap: 20px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .logo-text {
-        display: none;
-      }
-      .sidebar-nav ul {
-        gap: 5px;
-      }
-      .nav-item {
-        padding: 10px;
-        font-size: 24px;
-      }
-      .header-title, .content-title {
-        font-size: 32px;
-      }
-      .user-profile {
-        align-self: flex-end;
-      }
-    }
-  </style>
-  <script src="global.js" defer></script>
-</head>
-<body>
-<section id="dashboard">
-  <div class="dashboard-layout">
-    <aside class="sidebar">
-      <div class="sidebar-top">
-        <a href="#" class="logo d-flex align-center">
-          <!--merged image-->
-          <div class="logo-icon-container">
-            <img src="images/766_1101.svg" alt="logo part 1" style="position: absolute; top: 0; left: 32.6px; width: 57.47px; height: 57.47px;">
-            <img src="images/766_1105.svg" alt="logo part 2" style="position: absolute; top: 11px; left: 0; width: 122.69px; height: 81.07px;">
-            <img src="images/766_1108.svg" alt="logo part 3" style="position: absolute; top: 3px; left: 11.5px; width: 100.25px; height: 89.18px;">
-          </div>
-          <span class="logo-text">EDUGO</span>
-        </a>
-        <nav class="sidebar-nav">
-          <ul>
-            <li><a href="#" class="nav-item d-flex align-center"><img src="images/271_74.svg" alt="DashboardService icon"><span>Dashboad</span></a></li>
-            <li class="active"><a href="#" class="nav-item d-flex align-center"><img src="images/215_188.svg" alt="Utilisateurs icon"><span>Utilisateurs</span></a></li>
-            <li><a href="#" class="nav-item d-flex align-center"><img src="images/215_212.svg" alt="Livres icon"><span>Livres</span></a></li>
-            <li><a href="#" class="nav-item d-flex align-center"><img src="images/271_57.svg" alt="Quiz icon"><span>Quiz</span></a></li>
-            <li><a href="#" class="nav-item d-flex align-center"><img src="images/476_2337.svg" alt="Défis icon"><span>Défis</span></a></li>
-            <li><a href="#" class="nav-item d-flex align-center"><img src="images/771_3063.svg" alt="Challenge icon"><span>Challenge</span></a></li>
-            <li><a href="#" class="nav-item d-flex align-center"><img src="images/771_3075.svg" alt="Exercices icon"><span>exercices</span></a></li>
-            <li><a href="#" class="nav-item d-flex align-center"><img src="images/771_3055.svg" alt="Parametres icon"><span>Parametres</span></a></li>
-          </ul>
-        </nav>
+  <!-- Filtres -->
+  <div class="filter">
+    <section class="filters-container">
+      <div class="filter-group">
+        <label>Recherche</label>
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Nom, email..." />
       </div>
-      <div class="sidebar-bottom">
-        <a href="#" class="nav-item d-flex align-center">
-          <img src="images/424_1503.svg" alt="Logout icon">
-          <span>Deconnexion</span>
-        </a>
+
+      <div class="filter-group">
+        <label>Niveau scolaire</label>
+        <select [(ngModel)]="selectedLevel">
+          <option>Tous les niveaux</option>
+          <option>2ème</option>
+          <option>3ème</option>
+          <option>4ème</option>
+        </select>
       </div>
-    </aside>
-    <div class="content-wrapper">
-      <header class="main-header d-flex align-center justify-between">
-        <h1 class="header-title">Gesiton des Utilisateurs</h1>
-        <div class="user-profile d-flex align-center">
-          <div class="notification-bell">
-            <img src="images/215_255.svg" alt="Bell icon">
-            <img src="images/215_258.svg" class="notification-dot" alt="Notification dot">
-          </div>
-          <div class="user-avatar d-flex align-center justify-center">HD</div>
-          <div class="user-info">
-            <p class="user-name">Hamidou DJIRE</p>
-            <p class="user-role">Administrateur</p>
-          </div>
-          <img src="images/215_259.svg" alt="Dropdown arrow">
-        </div>
-      </header>
-      <main class="main-content">
-        <h2 class="content-title">Utilisateurs</h2>
-        <div class="card filters-card">
-          <form class="filters-form">
-            <div class="form-group">
-              <label for="search">Recherche</label>
-              <input type="text" id="search" placeholder="Nom, email, telephone...">
-            </div>
-            <div class="form-group">
-              <label for="level">Niveau Scolaire</label>
-              <div class="select-wrapper">
-                <select id="level">
-                  <option>Tous les niveaux</option>
-                </select>
-                <img src="images/289_1102.svg" class="select-arrow" alt="arrow">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="status">Statut</label>
-              <div class="select-wrapper">
-                <select id="status">
-                  <option>Tous les statuts</option>
-                </select>
-                <img src="images/289_1104.svg" class="select-arrow" alt="arrow">
-              </div>
-            </div>
-            <div class="form-actions">
-              <button type="button" class="btn btn-filter d-flex align-center"><img src="images/289_1098.svg" alt="filter icon">Filtrer</button>
-              <button type="button" class="btn btn-refresh d-flex align-center"><img src="images/289_1084.svg" alt="refresh icon">actualiser</button>
-            </div>
-          </form>
-        </div>
-        <div class="card users-list-card">
-          <div class="list-header d-flex align-center justify-between">
-            <h3 class="list-title">Listes des Utilisateurs (2,847)</h3>
-            <div class="select-wrapper">
-              <select>
-                <option>Trier par date d’inscription</option>
-              </select>
-              <img src="images/289_1110.svg" class="select-arrow" alt="arrow">
-            </div>
-          </div>
-          <div class="table-responsive">
-            <table class="users-table">
-              <thead>
-              <tr>
-                <th>Utilisateurs</th>
-                <th>Niveau</th>
-                <th>Telephone</th>
-                <th>Inscription</th>
-                <th>Points</th>
-                <th>Statut</th>
-                <th>Actions</th>
-              </tr>
-              </thead>
-              <tbody>
-              <!-- Repeat for each user -->
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-1 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-1">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/343_722.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_725.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <!-- 9 more example rows -->
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-2 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-1">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_668.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_743.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-3 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_670.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_760.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-4 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_672.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_777.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-5 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_674.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_794.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-6 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_676.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_811.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-7 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_678.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_828.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-8 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_680.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_845.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-9 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_682.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_862.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="d-flex align-center">
-                    <div class="table-avatar avatar-10 d-flex align-center justify-center">HD</div>
-                    <div>
-                      <p class="user-name-table">Hamidou DJIRE</p>
-                      <p class="user-email-table">professeurhamidoudjire@gmail.com</p>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-level-2">4 ème</span></td>
-                <td>+223 74469970</td>
-                <td>10/10/2025</td>
-                <td class="points">1,200</td>
-                <td><span class="badge badge-status">Actif</span></td>
-                <td>
-                  <div class="d-flex" style="gap: 10px;">
-                    <button class="btn-icon"><img src="images/348_684.svg" alt="View icon"></button>
-                    <button class="btn-icon"><img src="images/343_930.svg" alt="Delete icon"></button>
-                  </div>
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <footer class="list-footer d-flex align-center justify-between">
-            <p class="footer-info">Affichage de 1 à 10 sur 10 000 Utilisateurs</p>
-            <nav class="pagination d-flex align-center">
-              <button class="btn-icon"><img src="images/343_956.svg" alt="Previous page"></button>
-              <ul class="d-flex align-center">
-                <li><a href="#" class="page-number active">1</a></li>
-                <li><a href="#" class="page-number">2</a></li>
-                <li><a href="#" class="page-number">3</a></li>
-                <li><a href="#" class="page-number">4</a></li>
-                <li><a href="#" class="page-number">5</a></li>
-              </ul>
-              <button class="btn-icon"><img src="images/343_953.svg" alt="Next page"></button>
-            </nav>
-          </footer>
-        </div>
-      </main>
-    </div>
+
+      <div class="filter-group">
+        <label>Statut</label>
+        <select [(ngModel)]="selectedStatus">
+          <option>Tous les statuts</option>
+          <option>Actif</option>
+          <option>Inactif</option>
+        </select>
+      </div>
+
+      <div class="action-buttons">
+        <button class="filter-btn" (click)="applyFilters()">
+          <fa-icon [icon]="faFilter"></fa-icon>
+          Filtrer
+        </button>
+        <button class="reset-btn" (click)="resetFilters()">
+          <fa-icon [icon]="faRedoAlt"></fa-icon>
+          Réinitialiser
+        </button>
+      </div>
+    </section>
   </div>
-</section>
-</body>
-</html>
+  <div class="table-header-info">
+    <h2>Liste des utilisateurs ({{ filteredUsers.length }})</h2>
+  </div>
+
+  <!-- Tableau sans pagination -->
+  <section class="users-table-section no-scroll">
+    <div class="table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>Utilisateur</th>
+          <th>Niveau</th>
+          <th>Téléphone</th>
+          <th>Inscription</th>
+          <th>Points</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of filteredUsers">
+          <td class="user-details-cell">
+            <div class="user-initials" [ngClass]="user.color">{{ user.initials }}</div>
+            <div class="user-info-text">
+              <p class="name">{{ user.firstName }} {{ user.lastName }}</p>
+              <small class="email">{{ user.email }}</small>
+            </div>
+          </td>
+          <td><span class="level-badge">{{ user.level }}</span></td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.registrationDate }}</td>
+          <td>{{ user.points }}</td>
+          <td>
+              <span class="status-badge" [class.active-status]="user.status === 'Actif'">
+                {{ user.status }}
+              </span>
+          </td>
+          <td class="actions-cell">
+            <button class="action-icon-btn" (click)="viewUser(user)">
+              <fa-icon [icon]="faEye"></fa-icon>
+            </button>
+            <button class="action-icon-btn" (click)="editUser(user)">
+              <fa-icon [icon]="faPen"></fa-icon>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

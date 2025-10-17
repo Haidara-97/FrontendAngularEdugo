@@ -55,7 +55,7 @@
   background-color: #e5e0ff;
   color: #7b4fff;
   border-left: 4px solid #7b4fff;
-  margin-right: -4px;
+  margin-right: 0;
 }
 
 .menu-item:not(.active):hover {
@@ -63,7 +63,7 @@
 }
 
 .logout {
-  margin-top: 70px;
+  margin-top: 130px;
   padding: 20px;
   display: flex;
   align-items: center;
